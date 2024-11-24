@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 18:53:20 by fileonar          #+#    #+#             */
-/*   Updated: 2024/11/23 18:56:02 by fileonar         ###   ########.fr       */
+/*   Updated: 2024/11/24 20:58:36 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc != 3)
-		return(ft_)
+	(void)argc;
+	(void)argv;
 }
