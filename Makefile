@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 18:52:22 by fileonar          #+#    #+#              #
-#    Updated: 2024/11/24 20:57:07 by fileonar         ###   ########.fr        #
+#    Updated: 2024/11/25 02:08:34 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,10 +42,10 @@ bin/%.o : %.c $(DEPS) | bin
 	@git submodule update --init ./libft
 	@make -C ./libft
 
-$(CLIENT_NAME):  $(CLIENT_OBJS)
+$(CLIENT_NAME):  $(CLIENT_OBJS) ./libft/libft.a
 	$(CC) -o $(CLIENT_NAME) $(CLIENT_OBJS) $(LIB) -ldl $(HEADER) $(CFLAGS)  -L ./libft -lft  
 
-$(SERVER_NAME):  $(SERVER_OBJS)
+$(SERVER_NAME):  $(SERVER_OBJS) ./libft/libft.a
 	$(CC) -o $(SERVER_NAME) -L ./libft -lft  $(SERVER_OBJS) $(LIB) -ldl $(HEADER) $(CFLAGS)
 
 clean:

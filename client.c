@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:02:25 by fileonar          #+#    #+#             */
-/*   Updated: 2024/11/25 01:41:31 by fileonar         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:18:27 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	send_msg_char(char c, int pid)
 
 static void send_msg(char *msg, int pid)
 {
-	while(*msg)
+	while (*msg)
 	{
 		send_msg_char(*msg, pid);
 		msg++;
