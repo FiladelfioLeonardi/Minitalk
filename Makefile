@@ -6,7 +6,7 @@
 #    By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 18:52:22 by fileonar          #+#    #+#              #
-#    Updated: 2024/11/25 02:08:34 by fileonar         ###   ########.fr        #
+#    Updated: 2024/11/27 13:29:30 by fileonar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,15 @@ SERVER_OBJS = $(SERVER_SRCS:%.c=bin/%.o)
 CLIENT_SRCS = client.c
 SERVER_SRCS = server.c
 
-LIB = -lft -Llibft/ 
-HEADER = -I libft/
+LIB = -L./libft -lft
+HEADER = -I./libft 
 
 DEPS = minitalk.h
+
+ifeq ($(DEBUG), 1)
+CFLAGS += -g3
+debug: re
+endif
 
 all: $(CLIENT_NAME) $(SERVER_NAME)
 
@@ -43,10 +48,10 @@ bin/%.o : %.c $(DEPS) | bin
 	@make -C ./libft
 
 $(CLIENT_NAME):  $(CLIENT_OBJS) ./libft/libft.a
-	$(CC) -o $(CLIENT_NAME) $(CLIENT_OBJS) $(LIB) -ldl $(HEADER) $(CFLAGS)  -L ./libft -lft  
+	$(CC) -o $(CLIENT_NAME) $(CLIENT_OBJS) $(LIB) $(HEADER) $(CFLAGS)
 
 $(SERVER_NAME):  $(SERVER_OBJS) ./libft/libft.a
-	$(CC) -o $(SERVER_NAME) -L ./libft -lft  $(SERVER_OBJS) $(LIB) -ldl $(HEADER) $(CFLAGS)
+	$(CC) -o $(SERVER_NAME) $(SERVER_OBJS) $(LIB) $(HEADER) $(CFLAGS)
 
 clean:
 	@rm -rf bin
