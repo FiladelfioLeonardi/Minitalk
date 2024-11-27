@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 18:53:20 by fileonar          #+#    #+#             */
-/*   Updated: 2024/11/25 01:40:59 by fileonar         ###   ########.fr       */
+/*   Updated: 2024/11/27 12:30:24 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	recieve_msg(int signal)
 	static int	bits = 0;
 	static int	index = 0;
 	unsigned char	c;
-	static	char	*msg_str;
+	static	char	*msg_str = NULL;
 	char			*tmp;
 
 	c = 1;
