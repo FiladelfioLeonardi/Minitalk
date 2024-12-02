@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 17:59:40 by fileonar          #+#    #+#             */
-/*   Updated: 2024/11/27 17:22:32 by fileonar         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:24:58 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,5 @@
 
 //LOCAL LIBS
 # include "libft.h"
-
-//MACROS
-
-//PROTOTYPES
 
 #endif

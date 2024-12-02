@@ -6,7 +6,7 @@
 /*   By: fileonar <fileonar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 21:02:25 by fileonar          #+#    #+#             */
-/*   Updated: 2024/11/27 17:22:05 by fileonar         ###   ########.fr       */
+/*   Updated: 2024/12/02 16:28:31 by fileonar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	send_msg_char(char c, int server_pid)
 			kill(server_pid, SIGUSR1);
 		else
 			kill(server_pid, SIGUSR2);
-		usleep(500);
+		usleep(80);
 		bits--;
 	}
 }
@@ -35,11 +35,11 @@ static void	send_msg(char *msg, int server_pid)
 		send_msg_char(*msg, server_pid);
 		msg++;
 	}
-	usleep(200);
+	usleep(80);
 	send_msg_char('\0', server_pid);
 }
 
-int	main(int argc, char **argv)
+int	main(int argc, char *argv[])
 {
 	int		server_pid;
 	char	*msg;
@@ -47,7 +47,8 @@ int	main(int argc, char **argv)
 	if (argc != 3)
 		return (ft_printf("Usage: ./client [PID] [MSG]\n"), EXIT_FAILURE);
 	server_pid = ft_atoi(argv[1]);
-	msg = argv[2];
+	msg = ft_strdup(argv[2]);
 	send_msg(msg, server_pid);
+	ft_free_n_null((void **)&msg);
 	return (0);
 }
